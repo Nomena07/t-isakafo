@@ -1,15 +1,26 @@
 // database/db.js
 const low      = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
 const path     = require('path');
 const bcrypt   = require('bcryptjs');
 const fs       = require('fs');
 
-const DB_DIR = path.join(__dirname, 'data');
-if (!fs.existsSync(DB_DIR)) fs.mkdirSync(DB_DIR, { recursive: true });
+const isVercel = !!process.env.VERCEL;
 
-const adapter = new FileSync(path.join(DB_DIR, 'restaurant.json'));
-const db = low(adapter);
+let adapter, db;
+
+if (isVercel) {
+  const Memory = require('lowdb/adapters/Memory');
+  adapter = new Memory();
+  db = low(adapter);
+  console.log('[DB] Mode Vercel → mémoire (données temporaires)');
+} else {
+  const FileSync = require('lowdb/adapters/FileSync');
+  const DB_DIR = path.join(__dirname, 'data');
+  if (!fs.existsSync(DB_DIR)) fs.mkdirSync(DB_DIR, { recursive: true });
+  adapter = new FileSync(path.join(DB_DIR, 'restaurant.json'));
+  db = low(adapter);
+  console.log('[DB] Mode local → fichier restaurant.json');
+}
 
 db.defaults({
   meta: { orderCounter: 9, tableCounter: 8, reservationCounter: 0, createdAt: new Date().toISOString(),
