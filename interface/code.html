@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>L'Artisan - L'Excellence Culinaire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #141311;
+            color: #e6e2dd;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(20, 19, 17, 0.4) 0%, rgba(20, 19, 17, 0.8) 100%);
+        }
+        .menu-card-border {
+            border: 1px solid rgba(233, 193, 118, 0.15);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        /* Custom hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#dab36a",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#363532",
+                        "primary-container": "#df7328",
+                        "on-primary-container": "#481d00",
+                        "inverse-on-surface": "#31302d",
+                        "background": "#141311",
+                        "primary": "#ffb68d",
+                        "tertiary": "#c8c6c5",
+                        "secondary-container": "#604403",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#ffb68d",
+                        "on-error": "#690005",
+                        "on-secondary": "#412d00",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "surface-container-lowest": "#0f0e0c",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "secondary": "#e9c176",
+                        "on-tertiary": "#313030",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-variant": "#363532",
+                        "surface-bright": "#3a3936",
+                        "on-tertiary-container": "#2a2a2a",
+                        "inverse-surface": "#e6e2dd",
+                        "on-background": "#e6e2dd",
+                        "primary-fixed-dim": "#ffb68d",
+                        "outline": "#a58c7f",
+                        "tertiary-container": "#929090",
+                        "on-primary-fixed": "#321200",
+                        "surface": "#141311",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-surface": "#e6e2dd",
+                        "surface-container-low": "#1c1c19",
+                        "surface-dim": "#141311",
+                        "tertiary-fixed": "#e5e2e1",
+                        "outline-variant": "#564338",
+                        "surface-container-high": "#2b2a27",
+                        "on-secondary-fixed": "#261900",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#ddc1b3",
+                        "primary-fixed": "#ffdbc9",
+                        "on-primary-fixed-variant": "#763400",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#9a4600",
+                        "on-primary": "#532200",
+                        "surface-container": "#20201d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "section-gap": "64px",
+                        "touch-target": "48px",
+                        "base": "8px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["EB Garamond", "serif"],
+                        "label-caps": ["Manrope", "sans-serif"],
+                        "headline-md": ["EB Garamond", "serif"],
+                        "display-lg": ["EB Garamond", "serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "body-md": ["Manrope", "sans-serif"],
+                        "headline-sm": ["EB Garamond", "serif"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="smooth-scroll">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md flex items-center justify-between px-container-margin h-touch-target">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary md:font-display-lg md:text-display-lg">L'Artisan</h1>
+<div class="flex gap-4">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover" data-alt="A masterfully plated gourmet dish featuring a seared scallop resting on a bed of vibrant pea purée, garnished with micro-greens and edible flowers. The shot is a cinematic close-up with soft, dramatic side-lighting that highlights the texture and steam. The background is a dimly lit, high-end restaurant kitchen with hints of warm copper and polished dark wood, reflecting the luxurious and artisanal atmosphere of L'Artisan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELOgRoaCfNDI1EsSDB74X4qPOWFjQ4Srcw8P-hpliu5OYwQUtd1FBCTduh_SUwgSzZ8Ox-FP75Ek7_ZNj7HBd0QR59NLq5eo-dmIE6ed-m7DsoscOa20l0mrki-dgQVcrn0iRpKI1Q_P_CZehtd9ZMM9Oq2TFKgsT71qwHadlzMbPUGMCDlsIwuZiv8p2dhGme8blRiXWoLm0u6ncMuejX3glFF8FibCF0SsNL_-fNlG9be9qAV2PIPfXjUr_ZdwI4Br1_TWC4Z-M"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 text-center px-container-margin max-w-4xl">
+<h2 class="font-display-lg text-white mb-base md:text-6xl lg:text-7xl">L'Artisan : L'Excellence Culinaire</h2>
+<p class="font-body-lg text-on-surface-variant mb-section-gap max-w-2xl mx-auto">
+                    Une expérience gastronomique où chaque ingrédient raconte une histoire de passion et de savoir-faire ancestral.
+                </p>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase rounded-lg shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                    Réserver une Table
+                </button>
+</div>
+</section>
+<!-- Featured Menu (Nos Incontournables) -->
+<section class="py-section-gap px-container-margin max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-gutter">
+<div>
+<h3 class="font-headline-md text-secondary mb-2">Nos Incontournables</h3>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-low menu-card-border group overflow-hidden flex flex-col">
+<div class="aspect-[4/3] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A perfectly cooked medium-rare beef tenderloin sliced to reveal a rich pink center, served alongside roasted heritage carrots and a drizzle of glossy red wine reduction. The dish is presented on a handmade ceramic plate in a dark, atmospheric setting. The lighting is warm and focused, emphasizing the artisanal quality and gourmet textures of this signature main course." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZUfQfb9d21OiQi1Mep5vPS2FtkXjvcBMpaG7wr6xSYm1fXFQ-ZXpbui3-PHrSR5nLa0JkjoTTQeBXMLdvOPb-8WOpQao0iHtGIZcB9gU1Tm07D9edSF9W2P2eJ8RG-QPMDvpreZV1JRgv9cTofah1hPPneRtE_02NJskjPa8luOL0c4kmL2y7rWkl9BXoXINOXoH-3zjd7-xJ0rJ5F4Ie0y4i5gAN1k6Gc5mvzlvVr6RXGcynuURJ4UzhKdSjcNI8C062IkO-uxwc"/>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-on-surface">Le Filet d'Héritage</h4>
+<span class="font-display-lg-mobile text-primary text-xl">42€</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+                            Bœuf de race sélectionnée, maturé 30 jours, accompagné de légumes oubliés et d'un jus corsé au romarin.
+                        </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-secondary/30 rounded-full font-label-caps text-[10px] text-secondary">SANS GLUTEN</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low menu-card-border group overflow-hidden flex flex-col">
+<div class="aspect-[4/3] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Delicate pan-seared sea bass fillet with crispy golden skin, resting on a bed of citrus-infused fennel salad and vibrant saffron butter sauce. The scene is elegantly lit with soft amber tones, capturing the refined and light nature of the seafood. High-end plating on a minimalist white porcelain plate creates a contrast against the dark, textured table surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB078H3pc1XQYCfoHNuhA1ZaMh7FmgctVXKndo00EXxsesAlgTPI80be6bYFbbnyozsmsJ2RaKFJcvxi0o1aFKoVRdVgRzZe4FdX_pglrTBVyPskpk44I2nt1JkBc5GbUJuZPuLo4FZTlw1G4CEjoDdawFJyiNjAuSxY8pJkpGViuzYDugz9WX0593WA_AuQqhLfU4DbWQNgkaWdZ2PmkvYHzdJ0IntTH_ZvUeP-D1HQ-lApOpOmSj8J-9bWNdshUVDKIogkUYT5VAI"/>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-on-surface">Bar de Ligne</h4>
+<span class="font-display-lg-mobile text-primary text-xl">38€</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+                            Poisson sauvage rôti sur la peau, émulsion de fenouil sauvage et agrumes de Menton.
+                        </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-secondary/30 rounded-full font-label-caps text-[10px] text-secondary">LOCAL</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low menu-card-border group overflow-hidden flex flex-col">
+<div class="aspect-[4/3] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A decadent dark chocolate fondant with a molten center, dusted with gold leaf and served with a quenelle of Madagascar vanilla bean gelato and a fresh raspberry coulis. The image uses shallow depth of field to focus on the rich textures of the chocolate and the contrast of colors. The overall aesthetic is one of sophisticated luxury and artisanal dessert craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB76O7r_r-Fyoj_-F0AmbFrS4mShf-rr7mYoc1dUptOCMrRlwEAoFOOf5WeKnxntIGHefAUOMDZb3DbuROTDZOGljHXW7fVoaHbU_Cy1xJRqJsrdyOeNxLEYGRoA3TQPjX6iQYH1TmbDctZarwEjvb36r_CFsPP-ZrxIGaLMrhOGYItBbHOeKfIAldcL3XYt97Uq6DZlxeDvJkZ00YMOd9cK8_MXljYn2Agr3KPg039sY7bp5IMK8MArW2ZvQ_v-uWbGfMCcwwrbgwa"/>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-on-surface">L'Or Noir</h4>
+<span class="font-display-lg-mobile text-primary text-xl">16€</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+                            Fondant au chocolat Grand Cru, cœur coulant à la truffe noire et glace vanille Bourbon.
+                        </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-secondary/30 rounded-full font-label-caps text-[10px] text-secondary">SIGNATURE</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-section-gap text-center">
+<button class="border border-secondary text-secondary px-8 py-3 font-label-caps text-label-caps uppercase hover:bg-secondary hover:text-background transition-all active:scale-95">
+                    Voir la Carte Complète
+                </button>
+</div>
+</section>
+<!-- Experience Section (Notre Histoire) -->
+<section class="bg-surface-container-lowest py-section-gap">
+<div class="max-w-7xl mx-auto px-container-margin grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center">
+<div class="relative order-2 lg:order-1">
+<img class="w-full h-[500px] object-cover rounded-lg shadow-2xl" data-alt="The warm and inviting interior of L'Artisan restaurant, featuring dark charcoal walls, soft pendant lighting casting golden glows on wooden tables, and elegant leather booths. In the background, a chef is visible through an open kitchen window, meticulously arranging a plate. The atmosphere is intimate, cozy, and sophisticated, perfectly capturing the minimalist-luxury artisanal brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1wa5h23Zwu2y50Uj3zNLUGgZhuarW4I3U3b7RX9vBe_AQO5psgnN41opAp0wtPCtcxTjIlIA8bkNCX03FKLU0H3tMqsmpE22hUhLpWpSCRcl43g2pWW6eYGM0Y_yYAwF8anATvQKY4QeBG2J158ag_d6rMT0gcrbTIILafgjz6Y1M9dyfwX2eLD9mNOffs5JVJkyuLwTRrEzMpmMSuv_zamCKR86ls6fdPlQJuinadp4pq3URrW6mIOdElyzXLubm5Rf3iiAgiNq-"/>
+<div class="absolute -bottom-6 -right-6 w-48 h-48 border-2 border-primary/20 rounded-full lg:block hidden"></div>
+</div>
+<div class="order-1 lg:order-2 space-y-gutter">
+<span class="font-label-caps text-primary tracking-widest uppercase">Depuis 1994</span>
+<h3 class="font-display-lg text-secondary">Notre Histoire</h3>
+<p class="font-body-lg text-on-surface leading-relaxed">
+                        Chez L'Artisan, nous croyons que la cuisine est une forme d'art qui se vit au quotidien. Notre approche est celle d'un artisan : respect du produit brut, précision du geste et amour du détail.
+                    </p>
+<p class="font-body-md text-on-surface-variant">
+                        Chaque matin, nos chefs sélectionnent les meilleurs produits auprès de producteurs locaux passionnés pour vous offrir une table sincère et mémorable.
+                    </p>
+<div class="pt-base">
+<img class="h-16 opacity-60 invert contrast-200" data-alt="A stylized, elegant handwritten signature of a master chef, rendered in a subtle gold color. It serves as a seal of quality and personal touch at the bottom of the story section, reinforcing the artisanal and human-centric approach of the L'Artisan restaurant brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW81K7lYGNBaeIqbphIsXgafqxFmv-xACEQS-HSrNFlsO4PKUaZTJul4JAFwSsfGqb04wXNK1CAt_B8Mfih0ifmpwWlmgXuQCOfVgrowWAhtmidNKzesubhe5_rxaeAiUVdF6H2zU-k1FNt7pSzUoOWAqDWL6aREOrwq675YX2mWllcTiMQoslqv_bJtXOl12WvQtr_OdoNHX66NWjNZAEJkDr46bjISZupcJ1Jars9JMReyfbgnVOj4q_DoYaAOFrHf6SHr7h-amD"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Reservation Teaser -->
+<section class="py-section-gap px-container-margin text-center">
+<div class="max-w-2xl mx-auto bg-surface-container p-gutter md:p-12 rounded-xl relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">L'Artisan chez vous</h3>
+<p class="font-body-md text-on-surface-variant mb-8">
+                    Recevez nos actualités saisonnières et des invitations exclusives pour nos soirées de dégustation.
+                </p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-transparent border-b border-outline-variant text-on-surface py-3 focus:outline-none focus:border-primary transition-colors font-body-md" placeholder="Votre adresse email" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-caps text-label-caps uppercase hover:brightness-110 transition-all">S'inscrire</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-secondary font-body-md text-body-md w-full flex flex-col items-center py-section-gap px-container-margin space-y-gutter text-center">
+<h2 class="font-display-lg text-display-lg text-primary">L'Artisan</h2>
+<div class="flex flex-wrap justify-center gap-gutter text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Career</a>
+</div>
+<div class="flex gap-6 mt-4">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+<p class="mt-8 text-on-surface-variant/60">© 2024 L'Artisan Culinary. All rights reserved.</p>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-[72px] pb-safe bg-primary text-on-primary z-50 shadow-lg">
+<button class="flex flex-col items-center justify-center text-on-primary/70 hover:brightness-110 active:scale-98 transition-all">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-caps text-label-caps">Menu</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-primary font-bold hover:brightness-110 active:scale-98 transition-all">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-caps text-label-caps">Book Now</span>
+</button>
+</nav>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => button.style.transform = 'scale(0.95)');
+            button.addEventListener('mouseup', () => button.style.transform = 'scale(1)');
+            button.addEventListener('mouseleave', () => button.style.transform = 'scale(1)');
+        });
+
+        // Sticky header opacity on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+                header.style.backgroundColor = 'rgba(20, 19, 17, 0.98)';
+            } else {
+                header.classList.remove('shadow-lg');
+                header.style.backgroundColor = 'rgba(20, 19, 17, 0.95)';
+            }
+        });
+    </script>
+</body></html>

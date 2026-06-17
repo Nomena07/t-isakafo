@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payer avec MVola</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary": "#725c00",
+                        "primary": "#005e26",
+                        "on-surface": "#1c1b1b",
+                        "success-green": "#007A33",
+                        "tertiary-fixed-dim": "#ffb2be",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed": "#002109",
+                        "surface": "#fcf9f8",
+                        "on-background": "#1c1b1b",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-fixed": "#231b00",
+                        "tertiary-container": "#b0445d",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#ffd9de",
+                        "surface-tint": "#006e2d",
+                        "error": "#ba1a1a",
+                        "tertiary": "#912c46",
+                        "on-secondary-container": "#6e5900",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#becabb",
+                        "border-subtle": "#E5E7EB",
+                        "warning-yellow": "#FED100",
+                        "error-container": "#ffdad6",
+                        "outline": "#6f7a6d",
+                        "secondary-fixed": "#ffe07d",
+                        "on-primary-container": "#a1ffad",
+                        "on-surface-variant": "#3f4a3e",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#93f9a2",
+                        "surface-container-low": "#f6f3f2",
+                        "on-tertiary-fixed": "#400014",
+                        "inverse-primary": "#77dc88",
+                        "on-tertiary-container": "#ffe3e6",
+                        "error-red": "#E11D48",
+                        "secondary-container": "#fdd000",
+                        "primary-container": "#007a33",
+                        "surface-variant": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#77dc88",
+                        "on-tertiary-fixed-variant": "#83213c",
+                        "on-secondary-fixed-variant": "#564500",
+                        "surface-light": "#F9FAFB",
+                        "background": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-fixed-dim": "#ecc200",
+                        "on-primary-fixed-variant": "#005320",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "stack-md": "24px",
+                        "stack-sm": "12px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "caption": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 shadow-sm h-16">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-100">
+
+</button>
+<h1 class="text-on-surface dark:text-on-primary-fixed font-headline-md text-headline-md-mobile leading-tight tracking-tight">Payer avec MVola</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 duration-100">
+
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-20 pb-24 px-margin-mobile max-w-container-max mx-auto w-full">
+
+<div class="text-white">
+<p class="font-label-md text-label-md opacity-90 uppercase tracking-widest">Transaction Rapide</p>
+<h2 class="font-headline-lg text-headline-lg-mobile">Payez en un clin d'œil</h2>
+</div>
+</div>
+</div>
+<!-- Payment Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Summary Column -->
+<div class="md:col-span-7 flex flex-col gap-gutter">
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-border-subtle bento-card">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Résumé du paiement</h3>
+<p class="font-body-md text-on-surface-variant">Boutique • Réf: BTQ-2948-X</p>
+</div>
+<div class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-md font-label-md">
+                            En attente
+                        </div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center py-4 border-b border-dashed border-outline-variant">
+<span class="text-on-surface-variant font-body-md">Montant Total</span>
+<span class="text-headline-lg font-headline-lg text-on-surface">15 000 Ar</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-lg">
+<div class="bg-secondary-container p-3 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Marchand Certifié</p>
+<p class="font-caption text-caption text-on-surface-variant">Boutique Nationale Antananarivo</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-border-subtle bento-card">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Mode de paiement</h3>
+<div class="flex items-center justify-between p-4 border-2 border-primary bg-primary/5 rounded-xl cursor-default">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg p-2 shadow-sm flex items-center justify-center">
+<img alt="MVola Logo" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHR292uhQb1sIzUgjziHIivaOC830raVr57ahiNFJshKGkMUTYvBnL0TqQm8Zc40FkNFYB4mVsALrh68OcKNRCJ7AnvJQZ-LtA532IpZ9Yf18iB2jgY6Fr0xWQhiXOjCPXqM6YeP5vqMz1Pih4wcEYbCSQEmkOx1nq3Z0Pwt7WrO_2Q4Rbh3yLiXyCgtkNTygWUOvGUJZU6terFnjYRBXs8SlPNdNWV9Es9-jMBIT_E37TyTdRVFEgJ9cQhmuTIJnh2uztHotFZg_1"/>
+</div>
+<div>
+<p class="font-headline-md text-body-lg font-bold">MVola</p>
+<p class="font-caption text-caption text-on-surface-variant text-success-green flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                    Compte principal actif
+                                </p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">check</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Action Column -->
+<div class="md:col-span-5 flex flex-col gap-gutter">
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-border-subtle bento-card flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Vos informations</h3>
+<form class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Numéro MVola</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="text-on-surface-variant font-label-md">+261</span>
+</div>
+<input class="block w-full pl-16 pr-4 py-3 bg-surface-light border border-border-subtle rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-body-lg font-headline-md" placeholder="34 00 000 00" required="" type="tel"/>
+</div>
+</div>
+<div class="p-4 bg-surface-container-high rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-caption text-caption text-on-surface-variant">
+<strong class="text-on-surface">Transaction sécurisée.</strong> Un SMS de confirmation sera envoyé à votre numéro pour validation via votre code secret.
+                            </p>
+</div>
+<button class="w-full bg-secondary-container hover:bg-warning-yellow text-on-secondary-container font-headline-md text-body-lg py-4 rounded-full shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+                            Confirmer et Payer
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 pt-8 border-t border-border-subtle flex justify-center">
+<img alt="Security Seals" class="h-10 object-contain opacity-60" data-alt="A clean, minimalist arrangement of official digital security badges and payment certification icons on a pure white background. The style is modern corporate, emphasizing trust and high-end technological reliability. The icons are rendered in a sleek, monochromatic style with subtle gradients that suggest a premium fintech environment. The overall mood is institutional, professional, and secure." src="https://lh3.googleusercontent.com/aida/AP1WRLs-WossO0ohxs5ThiSD20Nr3E_KzMa9vg1PWZ2YkKxEqNYav3UPu23qOT4ut6M7OzPRqSG1Zc_xNPEfP52bM9WbDxpGl4dcY9Ef0-15yGbnb034L2PS6LINDNuJSxyIc_wzAyiwcXwoJX537UbYYnSWM4N7vWkSBvz-cUop7P_uLC8QW6CKvyH5TRfrme4Pi9DLTzLEs0R_afxFVvW71m0HpNysR-9e5Q29Op9x9iADUmRRjNBphWeRPdn9"/>
+</div>
+</section>
+</div>
+</div>
+<!-- Secondary Promotions / Features -->
+<section class="mt-stack-lg">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Pour vous</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container p-4 rounded-xl flex flex-col gap-3 bento-card">
+<span class="material-symbols-outlined text-tertiary">card_giftcard</span>
+<p class="font-label-md text-label-md">Cadeaux Fidélité</p>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex flex-col gap-3 bento-card">
+<span class="material-symbols-outlined text-primary">history</span>
+<p class="font-label-md text-label-md">Dernier Achat</p>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex flex-col gap-3 bento-card">
+<span class="material-symbols-outlined text-secondary">support_agent</span>
+<p class="font-label-md text-label-md">Aide en ligne</p>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex flex-col gap-3 bento-card">
+<span class="material-symbols-outlined text-success-green">percent</span>
+<p class="font-label-md text-label-md">Offres Partenaires</p>
+</div>
+</div>
+</section>
+</main>
+
+</nav>
+<script>
+        // Micro-interaction for the confirm button
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Traitement...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Succès !';
+                btn.classList.replace('bg-secondary-container', 'bg-success-green');
+                btn.classList.add('text-white');
+                
+                // Simulation of success state
+                setTimeout(() => {
+                    alert('Transaction BTQ-2948-X confirmée pour 15 000 Ar');
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-success-green', 'bg-secondary-container');
+                    btn.classList.remove('text-white');
+                }, 1500);
+            }, 2000);
+        });
+
+        // Toggle mobile drawer placeholder (logic only)
+        document.querySelector('header button:first-child').addEventListener('click', () => {
+            console.log('Open Navigation Drawer');
+            // In a real app, this would toggle a sidebar
+        });
+    </script>
+</body></html>
