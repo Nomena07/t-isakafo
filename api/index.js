@@ -1,3 +1,3 @@
 // api/index.js — Adaptateur Vercel Serverless Function
-const app = require('../backend/server');
-module.exports = app;
+const handler = require('../backend/server');
+module.exports = handler;
